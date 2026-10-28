@@ -4,7 +4,7 @@ The parent types every code realm shares, the way `Memory` is shared by every me
 
 | File | Types |
 |---|---|
-| `types/code.yml` | `Package`, `CodeType`, `Field`, `Method`, `Call`, `FieldAccess` (compiled code); `Source`, `SourceSpan`, `SourceDeclaration`, `CallSite`, `SourceImport`, `SourceLocal` (source); `StackFrame`, `ThrownException` (a running program's failures) |
+| `types/code.yml` | `Package`, `CodeType`, `Field`, `Method`, `Call`, `FieldAccess` (compiled code); `Source`, `SourceSpan`, `SourceDeclaration`, `CallSite`, `SourceReference`, `SourceImport`, `SourceLocal` (source); `StackFrame`, `ThrownException` (a running program's failures) |
 | `types/artifact.yml` | `Artifact`, `Dependency`, `Licence`, for any package ecosystem |
 
 They declare the contract only: the properties every language's rows carry under these names. A

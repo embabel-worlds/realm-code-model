@@ -138,6 +138,16 @@
     enclosing: "Name of the member the call is in."
     resolution: "How far the callee is known. `exact`: the method itself (compiled code, or a resolving parser). `type`: the receiver's static type is known and the method is matched by name within it. `name`: only the name, so any method of that name may be the callee. A syntax-only reader gives `name`."
 
+- name: SourceReference
+  description: "A name used in source where a type goes: a parameter's, field's or return type, a base class, a generic argument, an annotation, a constructor call. The name as written, not a resolved type: `Order` here and `Order` in another package are the same name. A declaration's own name, and a generic parameter's use inside the declaration that declares it, are not references. Name a language's child (e.g. PythonReference) to read one language."
+  properties:
+    id: { identity: true, description: "The file's id, `#ref:`, the name, line and column." }
+    sourceId: "Id of the Source it is in."
+    line: { type: int, description: "Line of the use." }
+    name: "The type's name as written, its last segment when qualified."
+    enclosing: "Name of the innermost declaration it is used in (a field, a method, a class); empty at a file's top level."
+    resolution: "How far the type is known. `exact`: the type itself (compiled code, or a resolving parser). `name`: only the name, so any type of that name may be meant. A syntax-only reader gives `name`."
+
 - name: SourceImport
   description: "One import in a source file: what the file brings in from another module, package or file, as written. Name a language's child (e.g. JavaImport) to read one language."
   properties:
