@@ -127,9 +127,9 @@
 - name: CallSite
   description: "One call in source, from a file's syntax tree: what it is called on and what is passed, with each argument's static type where the file alone shows it. Name a language's child (e.g. JavaCallSite) to read one language."
   properties:
-    id: { identity: true, description: "The file's id, `#call@`, line and column." }
+    id: { identity: true, description: "The file's id, `#call@`, and the line and column of the called name: each call of a chain (`a().b().c()`) has its own." }
     sourceId: "Id of the Source it is in."
-    line: { type: int, description: "Line of the call." }
+    line: { type: int, description: "Line of the call: where the called name is, so a chained call is on its own line." }
     method: "Called method's name, or the class name for a constructor call."
     receiver: "What it is called on, as written; empty for an unqualified call."
     receiverType: "Runtime name of the receiver's static type, when the file shows it."
