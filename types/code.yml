@@ -148,6 +148,17 @@
     enclosing: "Name of the innermost declaration it is used in (a field, a method, a class); empty at a file's top level."
     resolution: "How far the type is known. `exact`: the type itself (compiled code, or a resolving parser). `name`: only the name, so any type of that name may be meant. A syntax-only reader gives `name`."
 
+- name: MemberAccess
+  description: "A member named on a receiver in source and not called there: a property, field or attribute read or assigned (`run.status`, `self.items`, `this.total = 0`). The name as written, not a resolved member: `status` on any receiver is the same name, and the receiver says more. A member that is called is a CallSite, not this. Name a language's child (e.g. KotlinAccess) to read one language."
+  properties:
+    id: { identity: true, description: "The file's id, `#access@`, line and column." }
+    sourceId: "Id of the Source it is in."
+    line: { type: int, description: "Line of the access." }
+    name: "The member's name as written."
+    receiver: "What it is named on, as written."
+    enclosing: "Name of the member the access is in; empty at a file's top level."
+    resolution: "How far the member is known. `name`: only the name, so any member of that name may be meant. A syntax-only reader gives `name`."
+
 - name: SourceImport
   description: "One import in a source file: what the file brings in from another module, package or file, as written. Name a language's child (e.g. JavaImport) to read one language."
   properties:
